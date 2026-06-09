@@ -32,10 +32,25 @@
         }else if (isNaN(command.value) == false && command.value != "") {
             steck.push(command.value);
             update();
+        }else if (command.value == "swap") {
+            let firs = steck[0];
+            let final = steck[steck.length - 1];
+
+            steck[steck.length -1] = firs;
+            steck[0] = final;
+            update();
+
+        }else if (command.value == "over") {
+            let firs = steck[0];
+            for (let x = 1; x < steck.length; x++){
+                steck[x-1] = steck[x]; 
+            }
+            steck[steck.length -1] = firs;
+            update();
+
         }else {
             console_text = console_text + "error" + "\n";
             update();
-
         }
     });
 
