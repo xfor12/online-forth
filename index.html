@@ -48,6 +48,9 @@
             steck[steck.length -1] = firs;
             update();
 
+        }else if (command.value == "dup") {
+            steck.push(steck[steck.length - 1]);
+            update();
         }else {
             console_text = console_text + "error" + "\n";
             update();
