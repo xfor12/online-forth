@@ -17,14 +17,22 @@
     const sendbutton = document.getElementById("send_bt");
     let console_text = "";
     let steck = [];
+    function update() {
+        console.value = console_text;
+        command.value = "";
+    }
+    function print_steck() {console_text = console_text + steck + "\n";}
     sendbutton.addEventListener("click", function() {
         if (command.value == ".s"){
-            console_text = console_text + steck + "\n";
-            console.value = console_text;
-            command.value = ""
+            update();
+            print_steck();
+        }else if (command.value == "drop"){
+            steck = steck.slice(0, -1);
+            update();
+            print_steck();
         }else {
             steck.push(command.value);
-            command.value = ""
+            update();
         }
     });
 
