@@ -24,14 +24,18 @@
     function print_steck() {console_text = console_text + steck + "\n";}
     sendbutton.addEventListener("click", function() {
         if (command.value == ".s"){
+            console_text = console_text + steck + "\n";
             update();
-            print_steck();
         }else if (command.value == "drop"){
             steck = steck.slice(0, -1);
             update();
-        }else {
+        }else if (isNaN(command.value) == false && command.value != "") {
             steck.push(command.value);
             update();
+        }else {
+            console_text = console_text + "error" + "\n";
+            update();
+
         }
     });
 
