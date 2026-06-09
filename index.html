@@ -12,10 +12,20 @@
     </body>
 </html>
 <script>
-    const console = document.getElementById("output")
-    const command = document.getElementById("command")
-    const sendbutton = document.getElementById("send_bt")
-    let console_text = ""
-    let steck = []
-    
+    const console = document.getElementById("output");
+    const command = document.getElementById("command");
+    const sendbutton = document.getElementById("send_bt");
+    let console_text = "";
+    let steck = [];
+    sendbutton.addEventListener("click", function() {
+        if (command.value == ".s"){
+            console_text = console_text + steck + "\n";
+            console.value = console_text;
+            command.value = ""
+        }else {
+            steck.push(command.value);
+            command.value = ""
+        }
+    });
+
 </script>
